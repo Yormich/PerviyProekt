@@ -15,6 +15,12 @@ namespace PerviyProekt
         public Form1()
         {
             InitializeComponent();
+            LoadCurrency();
+        }
+
+        private void LoadCurrency()
+        {
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -28,6 +34,16 @@ namespace PerviyProekt
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void propertyGrid1_Click(object sender, EventArgs e)
         {
 
         }
