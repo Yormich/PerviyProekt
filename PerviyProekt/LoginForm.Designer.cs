@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.UserIcon = new System.Windows.Forms.PictureBox();
             this.LoginField = new System.Windows.Forms.TextBox();
             this.PassField = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.RegFormButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UserIcon)).BeginInit();
@@ -53,17 +54,6 @@
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(135, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 33);
-            this.label1.TabIndex = 0;
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -74,6 +64,17 @@
             this.label2.Size = new System.Drawing.Size(173, 33);
             this.label2.TabIndex = 1;
             this.label2.Text = "Авторизация";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(135, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 33);
+            this.label1.TabIndex = 0;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // pictureBox2
             // 
@@ -118,12 +119,30 @@
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(156, 286);
+            this.button1.Location = new System.Drawing.Point(156, 280);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(84, 32);
             this.button1.TabIndex = 5;
             this.button1.Text = "Войти";
             this.button1.UseVisualStyleBackColor = false;
+            // 
+            // RegFormButton
+            // 
+            this.RegFormButton.BackColor = System.Drawing.Color.Transparent;
+            this.RegFormButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RegFormButton.FlatAppearance.BorderSize = 0;
+            this.RegFormButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.RegFormButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.RegFormButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RegFormButton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.RegFormButton.Location = new System.Drawing.Point(111, 318);
+            this.RegFormButton.Name = "RegFormButton";
+            this.RegFormButton.Size = new System.Drawing.Size(167, 36);
+            this.RegFormButton.TabIndex = 6;
+            this.RegFormButton.Text = "Ещё нет аккаунта?";
+            this.RegFormButton.UseVisualStyleBackColor = false;
+            this.RegFormButton.Click += new System.EventHandler(this.RegFormButton_Click);
+            this.RegFormButton.MouseEnter += new System.EventHandler(this.RegFormButton_MouseEnter);
             // 
             // LoginForm
             // 
@@ -131,6 +150,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(380, 366);
+            this.Controls.Add(this.RegFormButton);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.PassField);
             this.Controls.Add(this.LoginField);
@@ -138,6 +158,7 @@
             this.Controls.Add(this.UserIcon);
             this.Controls.Add(this.panel1);
             this.Name = "LoginForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginForm";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -158,5 +179,6 @@
         private System.Windows.Forms.TextBox LoginField;
         private System.Windows.Forms.TextBox PassField;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button RegFormButton;
     }
 }

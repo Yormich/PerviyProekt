@@ -36,5 +36,17 @@ namespace PerviyProekt
         {
 
         }
+
+        private void RegFormButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            RegForm registerForm = new RegForm();
+            registerForm.Show();
+        }
+
+        private void RegFormButton_MouseEnter(object sender, EventArgs e)
+        {
+            RegFormButton.ForeColor = Color.Blue;
+        }
     }
 }
