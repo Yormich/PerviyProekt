@@ -1,6 +1,6 @@
 ﻿namespace PerviyProekt
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -114,7 +114,7 @@
             this.propertyGrid1.TabIndex = 8;
             this.propertyGrid1.Click += new System.EventHandler(this.PropertyGrid1_Click);
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -128,7 +128,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.DateTextBox);
             this.Controls.Add(this.label1);
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
