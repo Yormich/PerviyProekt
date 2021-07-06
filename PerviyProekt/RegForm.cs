@@ -19,20 +19,26 @@ namespace PerviyProekt
             comboBox1.Items.Add("Администратор");
             
         }
-
+        string Permission;
         private void Label2_Click(object sender, EventArgs e)
         {
 
         }
 
-        void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string selectedType = comboBox1.SelectedItem.ToString();
-            
+            Permission = comboBox1.SelectedItem.ToString();
         }
 
         private void RegButton_Click(object sender, EventArgs e)
         {
+            if (textBox1.Text == textBox2.Text)
+            {
+                string Password = textBox1.Text;
+                string Login = textBox3.Text;
+                User user = new User(Password, Login, Permission);
+
+            }
             this.Hide();
             LoginForm LoginForm = new LoginForm();
             LoginForm.Show();
@@ -41,6 +47,11 @@ namespace PerviyProekt
         private void ExitButton_MouseClick(object sender, MouseEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

@@ -12,9 +12,21 @@ namespace PerviyProekt
     class DataRetriever 
     {
         private XmlDocument XDoc;
+        private Stream stream;
+
+        public void WebResponse(string date)
+        {
+            string URI = "https://bank.gov.ua/NBU_Exchange/exchange?date=" + date;
+            WebRequest request = WebRequest.Create(URI);
+            WebResponse response = request.GetResponse();
+            stream = response.GetResponseStream();
+
+            response.Close();
+        }
         public DataRetriever(Stream stream)
         {
-            XDoc.Load(stream);
+            this.stream = stream;
+            XDoc.Load(this.stream);
         }
 
        public void Parse()

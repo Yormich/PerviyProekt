@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.ExitButton = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -39,7 +40,6 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.RegButton = new System.Windows.Forms.Button();
-            this.ExitButton = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,6 +54,20 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(374, 55);
             this.panel1.TabIndex = 0;
+            // 
+            // ExitButton
+            // 
+            this.ExitButton.AutoSize = true;
+            this.ExitButton.BackColor = System.Drawing.Color.Transparent;
+            this.ExitButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ExitButton.Font = new System.Drawing.Font("Microsoft JhengHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ExitButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.ExitButton.Location = new System.Drawing.Point(352, 0);
+            this.ExitButton.Name = "ExitButton";
+            this.ExitButton.Size = new System.Drawing.Size(19, 24);
+            this.ExitButton.TabIndex = 10;
+            this.ExitButton.Text = "x";
+            this.ExitButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ExitButton_MouseClick);
             // 
             // label1
             // 
@@ -121,6 +135,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(151, 32);
             this.textBox2.TabIndex = 6;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // textBox3
             // 
@@ -153,20 +168,6 @@
             this.RegButton.Text = "Зарегестрироваться";
             this.RegButton.UseVisualStyleBackColor = false;
             this.RegButton.Click += new System.EventHandler(this.RegButton_Click);
-            // 
-            // ExitButton
-            // 
-            this.ExitButton.AutoSize = true;
-            this.ExitButton.BackColor = System.Drawing.Color.Transparent;
-            this.ExitButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ExitButton.Font = new System.Drawing.Font("Microsoft JhengHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ExitButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.ExitButton.Location = new System.Drawing.Point(352, 0);
-            this.ExitButton.Name = "ExitButton";
-            this.ExitButton.Size = new System.Drawing.Size(19, 24);
-            this.ExitButton.TabIndex = 10;
-            this.ExitButton.Text = "x";
-            this.ExitButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ExitButton_MouseClick);
             // 
             // RegForm
             // 
