@@ -36,6 +36,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
+            this.ExitButton = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -114,12 +115,27 @@
             this.propertyGrid1.TabIndex = 8;
             this.propertyGrid1.Click += new System.EventHandler(this.PropertyGrid1_Click);
             // 
+            // ExitButton
+            // 
+            this.ExitButton.AutoSize = true;
+            this.ExitButton.BackColor = System.Drawing.Color.Transparent;
+            this.ExitButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ExitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ExitButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.ExitButton.Location = new System.Drawing.Point(777, -3);
+            this.ExitButton.Name = "ExitButton";
+            this.ExitButton.Size = new System.Drawing.Size(24, 29);
+            this.ExitButton.TabIndex = 9;
+            this.ExitButton.Text = "x";
+            this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.ExitButton);
             this.Controls.Add(this.propertyGrid1);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.button2);
@@ -128,6 +144,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.DateTextBox);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MainForm";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -146,6 +163,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.PropertyGrid propertyGrid1;
+        private System.Windows.Forms.Label ExitButton;
     }
 }
 

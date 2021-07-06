@@ -37,6 +37,7 @@
             this.PassField = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.RegFormButton = new System.Windows.Forms.Button();
+            this.ExitButton = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UserIcon)).BeginInit();
@@ -45,6 +46,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.panel1.Controls.Add(this.ExitButton);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -117,6 +119,7 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button1.Location = new System.Drawing.Point(156, 280);
@@ -125,6 +128,7 @@
             this.button1.TabIndex = 5;
             this.button1.Text = "Войти";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // RegFormButton
             // 
@@ -144,6 +148,20 @@
             this.RegFormButton.Click += new System.EventHandler(this.RegFormButton_Click);
             this.RegFormButton.MouseEnter += new System.EventHandler(this.RegFormButton_MouseEnter);
             // 
+            // ExitButton
+            // 
+            this.ExitButton.AutoSize = true;
+            this.ExitButton.BackColor = System.Drawing.Color.Transparent;
+            this.ExitButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ExitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ExitButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.ExitButton.Location = new System.Drawing.Point(360, 0);
+            this.ExitButton.Name = "ExitButton";
+            this.ExitButton.Size = new System.Drawing.Size(20, 24);
+            this.ExitButton.TabIndex = 7;
+            this.ExitButton.Text = "x";
+            this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -157,6 +175,7 @@
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.UserIcon);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginForm";
@@ -180,5 +199,6 @@
         private System.Windows.Forms.TextBox PassField;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button RegFormButton;
+        private System.Windows.Forms.Label ExitButton;
     }
 }

@@ -15,6 +15,9 @@ namespace PerviyProekt
         public RegForm()
         {
             InitializeComponent();
+            comboBox1.Items.Add("Пользователь");
+            comboBox1.Items.Add("Администратор");
+            
         }
 
         private void Label2_Click(object sender, EventArgs e)
@@ -22,14 +25,22 @@ namespace PerviyProekt
 
         }
 
-        private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            string selectedType = comboBox1.SelectedItem.ToString();
+            
         }
 
         private void RegButton_Click(object sender, EventArgs e)
         {
-           
+            this.Hide();
+            LoginForm LoginForm = new LoginForm();
+            LoginForm.Show();
+        }
+
+        private void ExitButton_MouseClick(object sender, MouseEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

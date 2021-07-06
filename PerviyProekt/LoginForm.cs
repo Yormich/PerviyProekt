@@ -48,5 +48,17 @@ namespace PerviyProekt
         {
             RegFormButton.ForeColor = Color.Blue;
         }
+
+        private void ExitButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            MainForm mainForm = new MainForm();
+            mainForm.Show();
+        }
     }
 }
