@@ -12,12 +12,13 @@ namespace PerviyProekt
 {
     public partial class RegForm : Form
     {
+        UserDB db;
         public RegForm()
         {
             InitializeComponent();
             comboBox1.Items.Add("Пользователь");
             comboBox1.Items.Add("Администратор");
-            
+            db = new UserDB();              
         }
         string Permission;
         private void Label2_Click(object sender, EventArgs e)
@@ -32,16 +33,30 @@ namespace PerviyProekt
 
         private void RegButton_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == textBox2.Text)
+            string passWord = PassField1.Text;
+            string PassWordRep = PassField2.Text;
+            string login = LoginField1.Text;
+            if (login.Length < 4)
             {
-                string Password = textBox1.Text;
-                string Login = textBox3.Text;
-                User user = new User(Password, Login, Permission);
-
+                MessageBox.Show("Ваш логин слишком короткий.");
             }
-            this.Hide();
-            LoginForm LoginForm = new LoginForm();
-            LoginForm.Show();
+            else if (passWord.Length < 5)
+            {
+                MessageBox.Show("Ваш пароль слишком короткий.");
+            }
+            else if (passWord != PassWordRep)
+            {
+                MessageBox.Show("Пароли не совпадают.Повторите попытку.");
+            }
+            else
+            {
+                User user = new User { Login = login, PassWord = passWord, TypeOfUser = Permission};
+                db.Users.Add(user);
+                db.SaveChanges();   
+                this.Hide();
+                LoginForm LoginForm = new LoginForm();
+                LoginForm.Show();
+            }
         }
 
         private void ExitButton_MouseClick(object sender, MouseEventArgs e)

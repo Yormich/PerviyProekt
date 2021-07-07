@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace PerviyProekt
 {
     public partial class LoginForm : Form
@@ -56,6 +57,17 @@ namespace PerviyProekt
 
         private void button1_Click(object sender, EventArgs e)
         {
+            String Login = LoginField.Text;
+            String PassWord = PassField.Text;
+          /*  if(table.Rows.Count>0)
+            {
+                MessageBox.Show("Вы авторизованы");
+            }
+            else
+            {
+                MessageBox.Show("Не удалось авторизоваться");
+            }*/
+
             this.Hide();
             MainForm mainForm = new MainForm();
             mainForm.Show();

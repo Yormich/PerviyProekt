@@ -35,9 +35,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.PassField2 = new System.Windows.Forms.TextBox();
+            this.PassField1 = new System.Windows.Forms.TextBox();
+            this.LoginField1 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.RegButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
@@ -119,31 +119,31 @@
             this.comboBox1.TabIndex = 4;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.ComboBox1_SelectedIndexChanged);
             // 
-            // textBox1
+            // PassField2
             // 
-            this.textBox1.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox1.Location = new System.Drawing.Point(200, 194);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(151, 32);
-            this.textBox1.TabIndex = 5;
-            this.textBox1.UseSystemPasswordChar = true;
+            this.PassField2.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.PassField2.Location = new System.Drawing.Point(200, 194);
+            this.PassField2.Name = "PassField2";
+            this.PassField2.Size = new System.Drawing.Size(151, 32);
+            this.PassField2.TabIndex = 5;
+            this.PassField2.UseSystemPasswordChar = true;
             // 
-            // textBox2
+            // PassField1
             // 
-            this.textBox2.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox2.Location = new System.Drawing.Point(200, 101);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(151, 32);
-            this.textBox2.TabIndex = 6;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.PassField1.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.PassField1.Location = new System.Drawing.Point(200, 101);
+            this.PassField1.Name = "PassField1";
+            this.PassField1.Size = new System.Drawing.Size(151, 32);
+            this.PassField1.TabIndex = 6;
+            this.PassField1.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
-            // textBox3
+            // LoginField1
             // 
-            this.textBox3.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox3.Location = new System.Drawing.Point(16, 101);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(142, 32);
-            this.textBox3.TabIndex = 7;
+            this.LoginField1.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LoginField1.Location = new System.Drawing.Point(16, 101);
+            this.LoginField1.Name = "LoginField1";
+            this.LoginField1.Size = new System.Drawing.Size(142, 32);
+            this.LoginField1.TabIndex = 7;
             // 
             // label5
             // 
@@ -176,9 +176,9 @@
             this.ClientSize = new System.Drawing.Size(374, 369);
             this.Controls.Add(this.RegButton);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.LoginField1);
+            this.Controls.Add(this.PassField1);
+            this.Controls.Add(this.PassField2);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -204,9 +204,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox PassField2;
+        private System.Windows.Forms.TextBox PassField1;
+        private System.Windows.Forms.TextBox LoginField1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button RegButton;
         private System.Windows.Forms.Label ExitButton;

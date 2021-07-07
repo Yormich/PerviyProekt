@@ -17,6 +17,17 @@ namespace PerviyProekt
         public MainForm()
         {
             InitializeComponent();
+           
+        }
+
+        private void WebResponse(string date,Stream stream)
+        {
+            string URI = "https://bank.gov.ua/NBU_Exchange/exchange?date=" + date;
+            WebRequest request = WebRequest.Create(URI);
+            WebResponse response = request.GetResponse();
+            stream = response.GetResponseStream();
+
+            response.Close();
         }
 
         private void Label1_Click(object sender, EventArgs e)
