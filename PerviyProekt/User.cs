@@ -13,6 +13,7 @@ namespace PerviyProekt
     class User
     {
      
+        private int ID { get; set; }
         public string Login { get; set; }
         
         public string PassWord { get; set; }

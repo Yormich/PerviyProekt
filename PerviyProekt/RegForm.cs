@@ -12,13 +12,13 @@ namespace PerviyProekt
 {
     public partial class RegForm : Form
     {
-        UserDB db;
+        Storage db;
         public RegForm()
         {
             InitializeComponent();
             comboBox1.Items.Add("Пользователь");
             comboBox1.Items.Add("Администратор");
-            db = new UserDB();              
+            db = new Storage();              
         }
         string Permission;
         private void Label2_Click(object sender, EventArgs e)

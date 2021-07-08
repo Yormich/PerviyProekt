@@ -9,9 +9,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace PerviyProekt
 {
-    class UserDB : DbContext
+    class Storage : DbContext
     {
-        public UserDB() : base("DefaultConnection")
+        public Storage() : base("DefaultConnection")
         {
            
         }
