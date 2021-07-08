@@ -46,9 +46,9 @@
             this.label1.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.Location = new System.Drawing.Point(33, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(181, 31);
+            this.label1.Size = new System.Drawing.Size(183, 31);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Введите дату:";
+            this.label1.Text = "Текущая дата";
             this.label1.Click += new System.EventHandler(this.Label1_Click);
             // 
             // DateTextBox
@@ -66,9 +66,9 @@
             this.label2.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.Location = new System.Drawing.Point(408, 21);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(240, 31);
+            this.label2.Size = new System.Drawing.Size(224, 31);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Выберите валюту:";
+            this.label2.Text = "Добавьте валюту";
             // 
             // textBox2
             // 

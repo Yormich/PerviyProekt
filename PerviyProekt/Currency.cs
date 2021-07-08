@@ -8,10 +8,10 @@ namespace PerviyProekt
 {
     class Currency
     {               
-        public int CurrencyCode { get; private set; }
-        public string CurrencyCodeL { get; private set; } 
-        public int Units { get; private set; }
-        public double Amount { get; private set; }
+        public int CurrencyCode { get;  set; }
+        public string CurrencyCodeL { get;  set; } 
+        public int Units { get;  set; }
+        public double Amount { get;  set; }
 
         public Currency(int CurrencyCode, string CurrencyCodeL, int Units, double Amount)
         {                

@@ -17,6 +17,6 @@ namespace PerviyProekt
         }
         public DbSet<User> Users { get; set; }
 
-       
+        public DbSet<Currency> Currencies { get; set; }
     }
 }

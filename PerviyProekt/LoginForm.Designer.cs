@@ -36,7 +36,7 @@
             this.UserIcon = new System.Windows.Forms.PictureBox();
             this.LoginField = new System.Windows.Forms.TextBox();
             this.PassField = new System.Windows.Forms.TextBox();
-            this.ButtonLogin = new System.Windows.Forms.Button();
+            this.LogButton = new System.Windows.Forms.Button();
             this.RegFormButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -54,7 +54,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(380, 52);
             this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel1_Paint);
             // 
             // ExitButton
             // 
@@ -90,7 +90,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 33);
             this.label1.TabIndex = 0;
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.label1.Click += new System.EventHandler(this.Label1_Click);
             // 
             // pictureBox2
             // 
@@ -130,19 +130,19 @@
             this.PassField.TabIndex = 4;
             this.PassField.UseSystemPasswordChar = true;
             // 
-            // ButtonLogin
+            // LogButton
             // 
-            this.ButtonLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.ButtonLogin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ButtonLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ButtonLogin.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ButtonLogin.Location = new System.Drawing.Point(156, 280);
-            this.ButtonLogin.Name = "ButtonLogin";
-            this.ButtonLogin.Size = new System.Drawing.Size(84, 32);
-            this.ButtonLogin.TabIndex = 5;
-            this.ButtonLogin.Text = "Войти";
-            this.ButtonLogin.UseVisualStyleBackColor = false;
-            this.ButtonLogin.Click += new System.EventHandler(this.button1_Click);
+            this.LogButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.LogButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LogButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LogButton.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LogButton.Location = new System.Drawing.Point(156, 280);
+            this.LogButton.Name = "LogButton";
+            this.LogButton.Size = new System.Drawing.Size(84, 32);
+            this.LogButton.TabIndex = 5;
+            this.LogButton.Text = "Войти";
+            this.LogButton.UseVisualStyleBackColor = false;
+            this.LogButton.Click += new System.EventHandler(this.LogButton_Click);
             // 
             // RegFormButton
             // 
@@ -169,7 +169,7 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(380, 366);
             this.Controls.Add(this.RegFormButton);
-            this.Controls.Add(this.ButtonLogin);
+            this.Controls.Add(this.LogButton);
             this.Controls.Add(this.PassField);
             this.Controls.Add(this.LoginField);
             this.Controls.Add(this.pictureBox2);
@@ -197,7 +197,7 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.TextBox LoginField;
         private System.Windows.Forms.TextBox PassField;
-        private System.Windows.Forms.Button ButtonLogin;
+        private System.Windows.Forms.Button LogButton;
         private System.Windows.Forms.Button RegFormButton;
         private System.Windows.Forms.Label ExitButton;
     }

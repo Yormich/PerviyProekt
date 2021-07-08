@@ -18,17 +18,17 @@ namespace PerviyProekt
             InitializeComponent();
         }
 
-        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        private void FlowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void Panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void Label1_Click(object sender, EventArgs e)
         {
 
         }
@@ -54,23 +54,33 @@ namespace PerviyProekt
         {
             Application.Exit();
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void LogButton_Click(object sender, EventArgs e)
         {
             String Login = LoginField.Text;
             String PassWord = PassField.Text;
-          /*  if(table.Rows.Count>0)
+
+            User userAuth = null;
+
+            using(Storage storage = new Storage())
             {
-                MessageBox.Show("Вы авторизованы");
+                userAuth = storage.Users.Where(b => b.Login == Login && b.PassWord == PassWord).FirstOrDefault();
+            }
+
+            if(userAuth != null)
+            {
+                MessageBox.Show("Вы успешно авторизованы!");
+                this.Hide();
+                MainForm mainForm = new MainForm();
+                mainForm.Show();
             }
             else
             {
-                MessageBox.Show("Не удалось авторизоваться");
-            }*/
-
-            this.Hide();
-            MainForm mainForm = new MainForm();
-            mainForm.Show();
+                MessageBox.Show("Вы ввели что-то некорректно.");
+            }
+         
         }
+
+    }
+
     }
 }
