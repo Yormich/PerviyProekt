@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -19,7 +20,7 @@ namespace PerviyProekt
             XDoc.Load(stream);
         }
 
-       public void Parse(string date)
+        public void Parse(string date,Storage bd)
         {
             XmlElement XRoot = XDoc.DocumentElement;
             foreach(XmlNode Node in XRoot)
@@ -28,7 +29,8 @@ namespace PerviyProekt
                 string CurrencyCodeL = Node["CurrencyCodeL"].Value;
                 int Units = int.Parse(Node["Units"].Value);
                 double Amount = double.Parse(Node["Amount"].Value);
-                new Currency(date,CurrencyCode, CurrencyCodeL, Units, Amount);
+                Currency currency = new Currency(date, CurrencyCode, CurrencyCodeL, Units, Amount);
+                bd.Currencies.Add(currency);
             }
 
         }

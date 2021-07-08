@@ -34,9 +34,10 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.DataAndCurrTypeButton = new System.Windows.Forms.Button();
             this.GraphButton = new System.Windows.Forms.Button();
+            this.ExitButton = new System.Windows.Forms.Label();
+            this.Button1 = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
-            this.ExitButton = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -81,7 +82,7 @@
             // DataAndCurrTypeButton
             // 
             this.DataAndCurrTypeButton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.DataAndCurrTypeButton.Location = new System.Drawing.Point(320, 75);
+            this.DataAndCurrTypeButton.Location = new System.Drawing.Point(203, 75);
             this.DataAndCurrTypeButton.Name = "DataAndCurrTypeButton";
             this.DataAndCurrTypeButton.Size = new System.Drawing.Size(132, 35);
             this.DataAndCurrTypeButton.TabIndex = 4;
@@ -100,22 +101,6 @@
             this.GraphButton.UseVisualStyleBackColor = true;
             this.GraphButton.Click += new System.EventHandler(this.GraphButton_Click);
             // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(39, 152);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(567, 30);
-            this.listBox1.TabIndex = 7;
-            // 
-            // propertyGrid1
-            // 
-            this.propertyGrid1.Location = new System.Drawing.Point(39, 217);
-            this.propertyGrid1.Name = "propertyGrid1";
-            this.propertyGrid1.Size = new System.Drawing.Size(567, 163);
-            this.propertyGrid1.TabIndex = 8;
-            this.propertyGrid1.Click += new System.EventHandler(this.PropertyGrid1_Click);
-            // 
             // ExitButton
             // 
             this.ExitButton.AutoSize = true;
@@ -130,15 +115,43 @@
             this.ExitButton.Text = "x";
             this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
             // 
+            // Button1
+            // 
+            this.Button1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Button1.Location = new System.Drawing.Point(654, 75);
+            this.Button1.Name = "Button1";
+            this.Button1.Size = new System.Drawing.Size(100, 35);
+            this.Button1.TabIndex = 11;
+            this.Button1.Text = "Добавить";
+            this.Button1.UseVisualStyleBackColor = true;
+            this.Button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(48, 143);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(584, 82);
+            this.listBox1.TabIndex = 12;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            // 
+            // propertyGrid1
+            // 
+            this.propertyGrid1.Location = new System.Drawing.Point(39, 250);
+            this.propertyGrid1.Name = "propertyGrid1";
+            this.propertyGrid1.Size = new System.Drawing.Size(593, 148);
+            this.propertyGrid1.TabIndex = 13;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.ExitButton);
             this.Controls.Add(this.propertyGrid1);
             this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.Button1);
+            this.Controls.Add(this.ExitButton);
             this.Controls.Add(this.GraphButton);
             this.Controls.Add(this.DataAndCurrTypeButton);
             this.Controls.Add(this.textBox2);
@@ -162,9 +175,10 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button DataAndCurrTypeButton;
         private System.Windows.Forms.Button GraphButton;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.PropertyGrid propertyGrid1;
         private System.Windows.Forms.Label ExitButton;
+        private System.Windows.Forms.Button Button1;
+        private System.Windows.Forms.PropertyGrid propertyGrid1;
+        public System.Windows.Forms.ListBox listBox1;
     }
 }
 

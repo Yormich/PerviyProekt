@@ -5,15 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.Practices.EnterpriseLibrary.Data;
-using Microsoft.EntityFrameworkCore;
+using System.Data.Entity;
 
 namespace PerviyProekt
 {
     class Storage : DbContext
     {
-        public Storage()
+        public Storage(): base("DefaultConnection")
         {
-           
         }
         public DbSet<User> Users { get; set; }
 

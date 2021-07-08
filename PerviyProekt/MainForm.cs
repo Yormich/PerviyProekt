@@ -15,14 +15,17 @@ namespace PerviyProekt
     public partial class MainForm : Form
     {
         DataRetriever DR;
+        Storage storage;
         public MainForm()
         {
+            storage = new Storage();
             DateTime time = DateTime.Today;
             string date = time.ToShortDateString();
+            DateTextBox.Text = date;
             Stream stream = null;
             WebResponse(date, stream);
             DR = new DataRetriever(stream);
-            DR.Parse(date);
+            DR.Parse(date,storage);
             InitializeComponent();
         }
 
@@ -63,6 +66,10 @@ namespace PerviyProekt
 
         private void DataAndCurrTypeButton_Click(object sender, EventArgs e)
         {
+            if(Convert.ToDateTime(DateTextBox.Text)>DateTime.Today)
+            {
+                MessageBox.Show("Введённая дата превышает сегодняшнюю дату.");
+            }
             
         }
 
@@ -72,6 +79,21 @@ namespace PerviyProekt
         }
 
         private void GraphButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
