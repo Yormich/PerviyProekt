@@ -50,7 +50,7 @@ namespace PerviyProekt
             }
             else
             {
-                User user = new User { Login = login, PassWord = passWord, TypeOfUser = Permission};
+                User user = new User(login, passWord, Permission);
                 db.Users.Add(user);
                 db.SaveChanges();   
                 this.Hide();
@@ -67,6 +67,11 @@ namespace PerviyProekt
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void RegForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -14,10 +14,16 @@ namespace PerviyProekt
 {
     public partial class MainForm : Form
     {
+        DataRetriever DR;
         public MainForm()
         {
+            DateTime time = DateTime.Today;
+            string date = time.ToShortDateString();
+            Stream stream = null;
+            WebResponse(date, stream);
+            DR = new DataRetriever(stream);
+            DR.Parse(date);
             InitializeComponent();
-           
         }
 
         private void WebResponse(string date,Stream stream)
@@ -63,6 +69,11 @@ namespace PerviyProekt
         private void ExitButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void GraphButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

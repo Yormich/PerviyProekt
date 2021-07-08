@@ -11,16 +11,15 @@ namespace PerviyProekt
 {
     class DataRetriever 
     {
-        private XmlDocument XDoc;
-        private Stream stream;
-     
+        private XmlDocument XDoc { get; set; }
+        private Stream stream { get; set; }
         public DataRetriever(Stream stream)
         {
             this.stream = stream;
-            XDoc.Load(this.stream);
+            XDoc.Load(stream);
         }
 
-       public void Parse()
+       public void Parse(string date)
         {
             XmlElement XRoot = XDoc.DocumentElement;
             foreach(XmlNode Node in XRoot)
@@ -29,7 +28,7 @@ namespace PerviyProekt
                 string CurrencyCodeL = Node["CurrencyCodeL"].Value;
                 int Units = int.Parse(Node["Units"].Value);
                 double Amount = double.Parse(Node["Amount"].Value);
-                new Currency(CurrencyCode, CurrencyCodeL, Units, Amount);
+                new Currency(date,CurrencyCode, CurrencyCodeL, Units, Amount);
             }
 
         }

@@ -33,7 +33,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.DataAndCurrTypeButton = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.GraphButton = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
             this.ExitButton = new System.Windows.Forms.Label();
@@ -89,15 +89,16 @@
             this.DataAndCurrTypeButton.UseVisualStyleBackColor = true;
             this.DataAndCurrTypeButton.Click += new System.EventHandler(this.DataAndCurrTypeButton_Click);
             // 
-            // button2
+            // GraphButton
             // 
-            this.button2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button2.Location = new System.Drawing.Point(670, 227);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(118, 59);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Сменить дату";
-            this.button2.UseVisualStyleBackColor = true;
+            this.GraphButton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.GraphButton.Location = new System.Drawing.Point(670, 217);
+            this.GraphButton.Name = "GraphButton";
+            this.GraphButton.Size = new System.Drawing.Size(118, 59);
+            this.GraphButton.TabIndex = 6;
+            this.GraphButton.Text = "Построить график";
+            this.GraphButton.UseVisualStyleBackColor = true;
+            this.GraphButton.Click += new System.EventHandler(this.GraphButton_Click);
             // 
             // listBox1
             // 
@@ -138,7 +139,7 @@
             this.Controls.Add(this.ExitButton);
             this.Controls.Add(this.propertyGrid1);
             this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.GraphButton);
             this.Controls.Add(this.DataAndCurrTypeButton);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label2);
@@ -160,7 +161,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button DataAndCurrTypeButton;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button GraphButton;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.PropertyGrid propertyGrid1;
         private System.Windows.Forms.Label ExitButton;

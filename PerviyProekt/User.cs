@@ -20,7 +20,12 @@ namespace PerviyProekt
 
         public string TypeOfUser { get; set; }
 
-
+        public User(string login, string passWord, string typeOfUser)
+        {
+            Login = login;
+            PassWord = passWord;
+            TypeOfUser = typeOfUser;
+        }
        
     }
 }

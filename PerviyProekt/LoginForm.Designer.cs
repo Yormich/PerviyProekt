@@ -161,6 +161,7 @@
             this.RegFormButton.UseVisualStyleBackColor = false;
             this.RegFormButton.Click += new System.EventHandler(this.RegFormButton_Click);
             this.RegFormButton.MouseEnter += new System.EventHandler(this.RegFormButton_MouseEnter);
+            this.RegFormButton.MouseLeave += new System.EventHandler(this.RegFormButton_MouseLeave);
             // 
             // LoginForm
             // 
@@ -179,6 +180,7 @@
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginForm";
+            this.Load += new System.EventHandler(this.LoginForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

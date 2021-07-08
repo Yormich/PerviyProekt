@@ -7,14 +7,16 @@ using System.Threading.Tasks;
 namespace PerviyProekt
 {
     class Currency
-    {               
+    {     
+        public string StartDate { get; set; }
         public int CurrencyCode { get;  set; }
         public string CurrencyCodeL { get;  set; } 
         public int Units { get;  set; }
         public double Amount { get;  set; }
 
-        public Currency(int CurrencyCode, string CurrencyCodeL, int Units, double Amount)
-        {                
+        public Currency(string StartDate,int CurrencyCode, string CurrencyCodeL, int Units, double Amount)
+        {
+            this.StartDate = StartDate;
             this.CurrencyCode = CurrencyCode;
             this.CurrencyCodeL = CurrencyCodeL;
             this.Units = Units;

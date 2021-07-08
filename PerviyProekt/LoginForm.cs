@@ -77,10 +77,19 @@ namespace PerviyProekt
             {
                 MessageBox.Show("Вы ввели что-то некорректно.");
             }
-         
+          
         }
 
+        private void RegFormButton_MouseLeave(object sender, EventArgs e)
+        {
+            RegFormButton.ForeColor = Color.Black;
+        }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 
-    }
 }
+

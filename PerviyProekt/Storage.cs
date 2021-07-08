@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.Entity;
 using System.ComponentModel.DataAnnotations;
-
+using Microsoft.Practices.EnterpriseLibrary.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace PerviyProekt
 {
     class Storage : DbContext
     {
-        public Storage() : base("DefaultConnection")
+        public Storage()
         {
            
         }
