@@ -3,24 +3,27 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
+using System.Xml.Serialization;
 
 namespace PerviyProekt
 {
     public partial class RegForm : Form
     {
-        Storage db;
+        RegAndLogin RL= new RegAndLogin();
         public RegForm()
         {
             InitializeComponent();
             comboBox1.Items.Add("Пользователь");
             comboBox1.Items.Add("Администратор");
-            db = new Storage();              
+                 
         }
-        string Permission;
+        string Permission=null;
         private void Label2_Click(object sender, EventArgs e)
         {
 
@@ -36,11 +39,12 @@ namespace PerviyProekt
             string passWord = PassField1.Text;
             string PassWordRep = PassField2.Text;
             string login = LoginField1.Text;
-            if (login.Length < 4)
+            int MinFieldLength = 5;
+            if (login.Length < MinFieldLength)
             {
                 MessageBox.Show("Ваш логин слишком короткий.");
             }
-            else if (passWord.Length < 5)
+            else if (passWord.Length < MinFieldLength)
             {
                 MessageBox.Show("Ваш пароль слишком короткий.");
             }
@@ -48,14 +52,17 @@ namespace PerviyProekt
             {
                 MessageBox.Show("Пароли не совпадают.Повторите попытку.");
             }
+            else if (Permission == null)
+            {
+                MessageBox.Show("Вы не выбрали тип пользователя.");
+            }
             else
             {
-                User user = new User(login, passWord, Permission);
-                db.Users.Add(user);
-                db.SaveChanges();   
+                RL.AddToDocument(RL.GetPath(), login, passWord, Permission);
                 this.Hide();
                 LoginForm LoginForm = new LoginForm();
                 LoginForm.Show();
+               
             }
         }
 
@@ -71,7 +78,10 @@ namespace PerviyProekt
 
         private void RegForm_Load(object sender, EventArgs e)
         {
-
+            if(!File.Exists(RL.GetPath()))
+            {
+                RL.CreateXMLDocument(RL.GetPath());
+            }
         }
     }
 }

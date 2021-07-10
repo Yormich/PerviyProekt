@@ -9,34 +9,57 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace PerviyProekt
 {
     public partial class MainForm : Form
     {
-        DataRetriever DR;
-        Storage storage;
         public MainForm()
         {
-            storage = new Storage();
-            DateTime time = DateTime.Today;
-            string date = time.ToShortDateString();
-            DateTextBox.Text = date;
-            Stream stream = null;
-            WebResponse(date, stream);
-            DR = new DataRetriever(stream);
-            DR.Parse(date,storage);
             InitializeComponent();
+            DateTime today = DateTime.Today;
+            string date = today.ToShortDateString();
+            DateTextBox.Text = date;
+            string response = WebResponse(date);
+            LoadCurrencies(date,response);
         }
 
-        private void WebResponse(string date,Stream stream)
+        public string WebResponse(string date)
         {
             string URI = "https://bank.gov.ua/NBU_Exchange/exchange?date=" + date;
             WebRequest request = WebRequest.Create(URI);
             WebResponse response = request.GetResponse();
-            stream = response.GetResponseStream();
-
+            Stream stream = response.GetResponseStream();
+            StreamReader reader = new StreamReader(stream);
+            string responseFromServer = reader.ReadToEnd();           
             response.Close();
+            return responseFromServer;
+        }
+
+        private void LoadCurrencies(string date, string response)
+        {
+                  
+            XmlDocument xDoc= new XmlDocument();
+            xDoc.LoadXml(response);
+            Parse(xDoc, date);
+        }
+
+        public void Parse(XmlDocument xDoc,string date)
+        {
+            XmlElement xRoot = xDoc.DocumentElement;
+            int it = 0;
+            foreach(XmlNode childNode in xRoot)
+            {
+                string StartDate = date;
+                int CurrencyCode = Convert.ToInt32(xDoc.GetElementsByTagName("CurrencyCode")[it].InnerText);
+                string CurrencyCodeL = xDoc.GetElementsByTagName("CurrencyCodeL")[it].InnerText;
+                int Units = Convert.ToInt32(xDoc.GetElementsByTagName("Units")[it].InnerText);
+                double Amount =Convert.ToDouble((xDoc.GetElementsByTagName("Amount")[it].InnerText).Replace(".",","));
+                Currency currency = new Currency(StartDate,CurrencyCode, CurrencyCodeL, Units, Amount);
+                CurrencyList.Items.Add(currency);
+                it++;
+            }    
         }
 
         private void Label1_Click(object sender, EventArgs e)
@@ -93,9 +116,12 @@ namespace PerviyProekt
 
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void CurrencyList_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if(CurrencyList.SelectedIndex!=-1)
+            {
+                propertyGrid1.SelectedObject = CurrencyList.SelectedItem;
+            }
         }
     }
 }

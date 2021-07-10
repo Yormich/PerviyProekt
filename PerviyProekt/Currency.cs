@@ -9,7 +9,9 @@ namespace PerviyProekt
     class Currency
     {     
         public string StartDate { get; set; }
+       
         public int CurrencyCode { get;  set; }
+
         public string CurrencyCodeL { get;  set; } 
         public int Units { get;  set; }
         public double Amount { get;  set; }

@@ -30,13 +30,10 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.DateTextBox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.DataAndCurrTypeButton = new System.Windows.Forms.Button();
             this.GraphButton = new System.Windows.Forms.Button();
             this.ExitButton = new System.Windows.Forms.Label();
-            this.Button1 = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.CurrencyList = new System.Windows.Forms.ListBox();
             this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
             this.SuspendLayout();
             // 
@@ -61,24 +58,6 @@
             this.DateTextBox.TabIndex = 1;
             this.DateTextBox.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(408, 21);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(224, 31);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Добавьте валюту";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox2.Location = new System.Drawing.Point(654, 27);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 29);
-            this.textBox2.TabIndex = 3;
-            // 
             // DataAndCurrTypeButton
             // 
             this.DataAndCurrTypeButton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -86,7 +65,7 @@
             this.DataAndCurrTypeButton.Name = "DataAndCurrTypeButton";
             this.DataAndCurrTypeButton.Size = new System.Drawing.Size(132, 35);
             this.DataAndCurrTypeButton.TabIndex = 4;
-            this.DataAndCurrTypeButton.Text = "Подтвердить";
+            this.DataAndCurrTypeButton.Text = "Сменить дату";
             this.DataAndCurrTypeButton.UseVisualStyleBackColor = true;
             this.DataAndCurrTypeButton.Click += new System.EventHandler(this.DataAndCurrTypeButton_Click);
             // 
@@ -115,25 +94,14 @@
             this.ExitButton.Text = "x";
             this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
             // 
-            // Button1
+            // CurrencyList
             // 
-            this.Button1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Button1.Location = new System.Drawing.Point(654, 75);
-            this.Button1.Name = "Button1";
-            this.Button1.Size = new System.Drawing.Size(100, 35);
-            this.Button1.TabIndex = 11;
-            this.Button1.Text = "Добавить";
-            this.Button1.UseVisualStyleBackColor = true;
-            this.Button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(48, 143);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(584, 82);
-            this.listBox1.TabIndex = 12;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.CurrencyList.FormattingEnabled = true;
+            this.CurrencyList.Location = new System.Drawing.Point(48, 143);
+            this.CurrencyList.Name = "CurrencyList";
+            this.CurrencyList.Size = new System.Drawing.Size(584, 82);
+            this.CurrencyList.TabIndex = 12;
+            this.CurrencyList.SelectedIndexChanged += new System.EventHandler(this.CurrencyList_SelectedIndexChanged);
             // 
             // propertyGrid1
             // 
@@ -149,13 +117,10 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.propertyGrid1);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.Button1);
+            this.Controls.Add(this.CurrencyList);
             this.Controls.Add(this.ExitButton);
             this.Controls.Add(this.GraphButton);
             this.Controls.Add(this.DataAndCurrTypeButton);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.DateTextBox);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -171,14 +136,11 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox DateTextBox;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button DataAndCurrTypeButton;
         private System.Windows.Forms.Button GraphButton;
         private System.Windows.Forms.Label ExitButton;
-        private System.Windows.Forms.Button Button1;
         private System.Windows.Forms.PropertyGrid propertyGrid1;
-        public System.Windows.Forms.ListBox listBox1;
+        public System.Windows.Forms.ListBox CurrencyList;
     }
 }
 

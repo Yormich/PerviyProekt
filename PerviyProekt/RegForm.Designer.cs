@@ -135,6 +135,7 @@
             this.PassField1.Name = "PassField1";
             this.PassField1.Size = new System.Drawing.Size(151, 32);
             this.PassField1.TabIndex = 6;
+            this.PassField1.UseSystemPasswordChar = true;
             this.PassField1.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // LoginField1

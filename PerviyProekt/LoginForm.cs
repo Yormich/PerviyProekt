@@ -13,8 +13,10 @@ namespace PerviyProekt
 {
     public partial class LoginForm : Form
     {
+        RegAndLogin RL = new RegAndLogin();
         public LoginForm()
         {
+   
             InitializeComponent();
         }
 
@@ -58,26 +60,17 @@ namespace PerviyProekt
         {
             String Login = LoginField.Text;
             String PassWord = PassField.Text;
-
-            User userAuth = null;
-
-            using(Storage storage = new Storage())
+            if (RL.ReadDocument(RL.GetPath(), Login, PassWord))
             {
-                userAuth = storage.Users.Where(b => b.Login == Login && b.PassWord == PassWord).FirstOrDefault();
-            }
-
-            if(userAuth != null)
-            {
-                MessageBox.Show("Вы успешно авторизованы!");
+                MessageBox.Show("Вы удачно авторизовались!");
                 this.Hide();
                 MainForm mainForm = new MainForm();
                 mainForm.Show();
             }
             else
             {
-                MessageBox.Show("Вы ввели что-то некорректно.");
+                MessageBox.Show("Не удалось авторизоваться.");
             }
-          
         }
 
         private void RegFormButton_MouseLeave(object sender, EventArgs e)
