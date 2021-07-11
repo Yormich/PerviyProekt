@@ -93,6 +93,12 @@ namespace PerviyProekt
             {
                 MessageBox.Show("Введённая дата превышает сегодняшнюю дату.");
             }
+            else
+            {
+                string response = WebResponse(DateTextBox.Text);
+                CurrencyList.Items.Clear();
+                LoadCurrencies(DateTextBox.Text,response);
+            }
             
         }
 
@@ -122,6 +128,11 @@ namespace PerviyProekt
             {
                 propertyGrid1.SelectedObject = CurrencyList.SelectedItem;
             }
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

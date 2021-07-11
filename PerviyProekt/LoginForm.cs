@@ -62,7 +62,7 @@ namespace PerviyProekt
             String PassWord = PassField.Text;
             if (RL.ReadDocument(RL.GetPath(), Login, PassWord))
             {
-                MessageBox.Show("Вы удачно авторизовались!");
+                MessageBox.Show("Вы успешно авторизовались!");
                 this.Hide();
                 MainForm mainForm = new MainForm();
                 mainForm.Show();
@@ -70,6 +70,8 @@ namespace PerviyProekt
             else
             {
                 MessageBox.Show("Не удалось авторизоваться.");
+                LoginField.Clear();
+                PassField.Clear();
             }
         }
 
