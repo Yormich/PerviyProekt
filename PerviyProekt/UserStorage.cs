@@ -8,7 +8,7 @@ using System.Xml;
 
 namespace PerviyProekt
 {
-    class RegAndLogin
+    class UserStorage
     {
         public const string path = "Users.xml";
         public string GetPath()
@@ -24,8 +24,9 @@ namespace PerviyProekt
             xtw.Close();
         }
 
-        public void AddToDocument(string filepath, string name, string password, string Permission)
+        public void AddToDocument(string filepath,User us)
         {
+            
             if (!File.Exists(path)) CreateXMLDocument(path);
             XmlDocument xd = new XmlDocument();
             FileStream fs = new FileStream(filepath, FileMode.Open);
@@ -37,9 +38,9 @@ namespace PerviyProekt
             XmlElement pass = xd.CreateElement("password");
             XmlElement typeofuser = xd.CreateElement("typeofuser");
 
-            XmlText tLogin = xd.CreateTextNode(name);
-            XmlText tPassword = xd.CreateTextNode(password);
-            XmlText tTypeOfUser = xd.CreateTextNode(Permission);
+            XmlText tLogin = xd.CreateTextNode(us.Login);
+            XmlText tPassword = xd.CreateTextNode(us.PassWord);
+            XmlText tTypeOfUser = xd.CreateTextNode(us.TypeOfUser);
 
             login.AppendChild(tLogin);
             pass.AppendChild(tPassword);
@@ -54,7 +55,7 @@ namespace PerviyProekt
             fs.Close();
             xd.Save(filepath);
         }
-        public bool ReadDocument(string filepath, string logCheck, string passCheck)
+        public bool ReadDocument(string filepath, string Login , string Password)
         {
             string login, password;
             bool Check = false;
@@ -68,7 +69,7 @@ namespace PerviyProekt
                 XmlElement pass = (XmlElement)xd.GetElementsByTagName("password")[i];
                 login = user.InnerText;
                 password = pass.InnerText;
-                if ((logCheck == login) & (passCheck == password))
+                if ((Login == login) && (Password == password))
                 {
                     Check = true;
                 }

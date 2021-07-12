@@ -13,7 +13,7 @@ namespace PerviyProekt
 {
     public partial class LoginForm : Form
     {
-        RegAndLogin RL = new RegAndLogin();
+        UserStorage RL = new UserStorage();
         public LoginForm()
         {
    
@@ -60,7 +60,7 @@ namespace PerviyProekt
         {
             String Login = LoginField.Text;
             String PassWord = PassField.Text;
-            if (RL.ReadDocument(RL.GetPath(), Login, PassWord))
+            if (RL.ReadDocument(RL.GetPath(),Login,PassWord))
             {
                 MessageBox.Show("Вы успешно авторизовались!");
                 this.Hide();

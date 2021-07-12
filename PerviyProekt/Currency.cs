@@ -27,7 +27,7 @@ namespace PerviyProekt
 
         public override string ToString()
         {
-            return CurrencyCodeL;
+            return CurrencyCodeL + " " + Convert.ToString(Amount/Units);
         }
 
     }

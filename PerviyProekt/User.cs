@@ -9,7 +9,6 @@ using System.Xml.Serialization;
 
 namespace PerviyProekt
 {
-   [Serializable]
     public class User
     {
         public string Login { get; set; }

@@ -15,7 +15,7 @@ namespace PerviyProekt
 {
     public partial class RegForm : Form
     {
-        RegAndLogin RL= new RegAndLogin();
+        UserStorage RL= new UserStorage();
         public RegForm()
         {
             InitializeComponent();
@@ -58,7 +58,8 @@ namespace PerviyProekt
             }
             else
             {
-                RL.AddToDocument(RL.GetPath(), login, passWord, Permission);
+                User user = new User(login, passWord, Permission);
+                RL.AddToDocument(RL.GetPath(),user);
                 this.Hide();
                 LoginForm LoginForm = new LoginForm();
                 LoginForm.Show();

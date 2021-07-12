@@ -17,70 +17,45 @@ namespace PerviyProekt
 {
     public partial class MainForm : Form
     {
+        CurrencyStorage CS = new CurrencyStorage();
+        WorkWithCurrency WWC = new WorkWithCurrency();
         public MainForm()
         {
+            if (!File.Exists(CS.GetPath()))
+            {
+                CS.CreateXMLDocument(CS.GetPath());
+            }
             InitializeComponent();
             DateTime today = DateTime.Today;
             string date = today.ToShortDateString();
             DateTextBox.Text = date;
-            string response = WebResponse(date);
-            LoadCurrencies(date,response);
-        }
-
-        public string WebResponse(string date)
-        {
-            string URI = "https://bank.gov.ua/NBU_Exchange/exchange?date=" + date;
-            WebRequest request = WebRequest.Create(URI);
-            WebResponse response = request.GetResponse();
-            Stream stream = response.GetResponseStream();
-            StreamReader reader = new StreamReader(stream);
-            string responseFromServer = reader.ReadToEnd();           
-            response.Close();
-            return responseFromServer;
-        }
-
-        public void LoadCurrencies(string date, string response)
-        {
-                  
-            XmlDocument xDoc= new XmlDocument();
-            xDoc.LoadXml(response);
-            Parse(xDoc, date);
-        }
-
-        public void Parse(XmlDocument xDoc,string date)
-        {
-            XmlElement xRoot = xDoc.DocumentElement;
-            int it = 0;
-            foreach(XmlNode childNode in xRoot)
+            if(CS.ReadDocument(CS.GetPath(),date))
             {
-                string StartDate = date;
-                int CurrencyCode = Convert.ToInt32(xDoc.GetElementsByTagName("CurrencyCode")[it].InnerText);
-                string CurrencyCodeL = xDoc.GetElementsByTagName("CurrencyCodeL")[it].InnerText;
-                int Units = Convert.ToInt32(xDoc.GetElementsByTagName("Units")[it].InnerText);
-                double Amount =Convert.ToDouble((xDoc.GetElementsByTagName("Amount")[it].InnerText).Replace(".",","));
-                Currency currency = new Currency(StartDate,CurrencyCode, CurrencyCodeL, Units, Amount);
-                CurrencyList.Items.Add(currency);
-                it++;
-            }    
-        }
-
-        public double ParseForGraph(XmlDocument xDoc,string currencyCode)
-        {
-            XmlElement xRoot = xDoc.DocumentElement;
-            int it = 0;
-            double amount=0;
-            foreach (XmlNode childNode in xRoot)
-            {
-                if(currencyCode == xDoc.GetElementsByTagName("CurrencyCodeL")[it].InnerText)
+                MessageBox.Show("ура");
+                XmlDocument doc = new XmlDocument();
+                doc.Load("Currencies.xml");
+                List<Currency> currencies = WWC.Parse(doc, date);
+                foreach (Currency c in currencies)
                 {
-                    double am = Convert.ToDouble((xDoc.GetElementsByTagName("Amount")[it].InnerText).Replace(".", ","));
-                    int Units = Convert.ToInt32(xDoc.GetElementsByTagName("Units")[it].InnerText);
-                    amount = am / Units;
-                }              
-                it++;
-            }            
-            return amount;
+                    
+                    CurrencyList.Items.Add(c);
+                }
+            }
+            else
+            {
+               string response =  WWC.WebResponse(date);
+                XmlDocument xDoc = new XmlDocument();
+                xDoc.LoadXml(response);
+
+                List<Currency> currencies = WWC.Parse(xDoc, date);
+                foreach(Currency c in currencies)
+                {
+                    CS.AddToDocument(CS.GetPath(), c);
+                    CurrencyList.Items.Add(c);
+                }
+            }
         }
+
 
         private void Label1_Click(object sender, EventArgs e)
         {
@@ -99,7 +74,10 @@ namespace PerviyProekt
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            if (!File.Exists(CS.GetPath()))
+            {
+                CS.CreateXMLDocument(CS.GetPath());
+            }
         }
 
         private void PropertyGrid1_Click(object sender, EventArgs e)
@@ -109,15 +87,44 @@ namespace PerviyProekt
 
         private void DataAndCurrTypeButton_Click(object sender, EventArgs e)
         {
-            if(Convert.ToDateTime(DateTextBox.Text)>DateTime.Today)
+
+            if (Convert.ToDateTime(DateTextBox.Text) > DateTime.Today)
             {
                 MessageBox.Show("Введённая дата превышает сегодняшнюю дату.");
             }
+            else if (Convert.ToDateTime(DateTextBox.Text) < DateTime.Today.AddYears(-26))
+            {
+                MessageBox.Show("Введённая вами дата слишком ранняя для отображения курса.");
+            }    
             else
             {
-                string response = WebResponse(DateTextBox.Text);
                 CurrencyList.Items.Clear();
-                LoadCurrencies(DateTextBox.Text,response);
+                string date = DateTextBox.Text;
+                if (CS.ReadDocument(CS.GetPath(), date))
+                {
+                    MessageBox.Show("ура");
+                    XmlDocument doc = new XmlDocument();
+                    doc.Load("Currencies.xml");
+                    List<Currency> currencies = WWC.Parse(doc, date);
+                    foreach (Currency c in currencies)
+                    {
+                       
+                        CurrencyList.Items.Add(c);
+                    }
+                }
+                else
+                {
+                    string response = WWC.WebResponse(date);
+                    XmlDocument xDoc = new XmlDocument();
+                    xDoc.LoadXml(response);
+
+                    List<Currency> currencies = WWC.Parse(xDoc, date);
+                    foreach (Currency c in currencies)
+                    {
+                        CS.AddToDocument(CS.GetPath(), c);
+                        CurrencyList.Items.Add(c);
+                    }
+                }
             }
             
         }
@@ -133,10 +140,14 @@ namespace PerviyProekt
             {
                 MessageBox.Show("Неправильная длина наименования валюты.");
             }
+            else if(Convert.ToDateTime(textBox2.Text)>= Convert.ToDateTime(textBox1.Text))
+            {
+                MessageBox.Show("Неправильный диапазон для графика.");
+            }
             else
             {
-                DateTime FinDate = DateTime.Today;
-                DateTime startDate = FinDate.AddYears(-10);
+                DateTime FinDate = Convert.ToDateTime(textBox1.Text);
+                DateTime startDate = Convert.ToDateTime(textBox2.Text);
                 string CurrencyCode = GraphTextBox.Text;
                 SeriesCollection series = new SeriesCollection();
                 ChartValues<double> currencies = new ChartValues<double>();
@@ -146,21 +157,41 @@ namespace PerviyProekt
                 while(startDate <= FinDate)
                 {
                     string Date = startDate.ToShortDateString();
-                    string response = WebResponse(Date);
-                    XmlDocument xDoc = new XmlDocument();
-                    xDoc.LoadXml(response);
-                    double amount=0;
-                    if(amount != ParseForGraph(xDoc,CurrencyCode))
+                    double amount = 0;
+                    if (CS.ReadDocument(CS.GetPath(), Date))
                     {
-                        amount = ParseForGraph(xDoc, CurrencyCode);
-                        currencies.Add(amount);
-                        dates.Add(Date);
-                       startDate = startDate.AddYears(1);
+                        XmlDocument doc = new XmlDocument();
+                        doc.Load("Currencies.xml");
+                        if(amount!=WWC.ParseForGraph(doc,CurrencyCode))
+                        {
+                            amount = WWC.ParseForGraph(doc, CurrencyCode);
+                            currencies.Add(amount);
+                            dates.Add(Date);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Ввёдённая вами валюта некорректна.");
+                            break;
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Ввёдённая вами валюта некорректна.");
-                        break;
+                        string response = WWC.WebResponse(Date);
+                        XmlDocument xDoc = new XmlDocument();
+                        xDoc.LoadXml(response);
+
+                        if (amount != WWC.ParseForGraph(xDoc, CurrencyCode))
+                        {
+                            amount = WWC.ParseForGraph(xDoc, CurrencyCode);
+                            currencies.Add(amount);
+                            dates.Add(Date);
+                            startDate = startDate.AddDays(1);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Ввёдённая вами валюта некорректна.");
+                            break;
+                        }
                     }
                 }
                 cartesianChart1.AxisX.Clear();
@@ -225,6 +256,16 @@ namespace PerviyProekt
         }
 
         private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
         {
 
         }
