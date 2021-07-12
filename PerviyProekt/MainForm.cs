@@ -31,7 +31,7 @@ namespace PerviyProekt
             DateTextBox.Text = date;
             if(CS.ReadDocument(CS.GetPath(),date))
             {
-                MessageBox.Show("ура");
+                
                 XmlDocument doc = new XmlDocument();
                 doc.Load("Currencies.xml");
                 List<Currency> currencies = WWC.Parse(doc, date);
@@ -102,7 +102,7 @@ namespace PerviyProekt
                 string date = DateTextBox.Text;
                 if (CS.ReadDocument(CS.GetPath(), date))
                 {
-                    MessageBox.Show("ура");
+
                     XmlDocument doc = new XmlDocument();
                     doc.Load("Currencies.xml");
                     List<Currency> currencies = WWC.Parse(doc, date);
@@ -167,6 +167,7 @@ namespace PerviyProekt
                             amount = WWC.ParseForGraph(doc, CurrencyCode);
                             currencies.Add(amount);
                             dates.Add(Date);
+                            startDate = startDate.AddDays(1);
                         }
                         else
                         {
