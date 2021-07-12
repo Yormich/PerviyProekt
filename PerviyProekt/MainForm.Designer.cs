@@ -36,6 +36,11 @@
             this.CurrencyList = new System.Windows.Forms.ListBox();
             this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cartesianChart1 = new LiveCharts.WinForms.CartesianChart();
+            this.label2 = new System.Windows.Forms.Label();
+            this.GraphTextBox = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,10 +67,10 @@
             // 
             // DataAndCurrTypeButton
             // 
-            this.DataAndCurrTypeButton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.DataAndCurrTypeButton.Location = new System.Drawing.Point(191, 57);
+            this.DataAndCurrTypeButton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.DataAndCurrTypeButton.Location = new System.Drawing.Point(182, 57);
             this.DataAndCurrTypeButton.Name = "DataAndCurrTypeButton";
-            this.DataAndCurrTypeButton.Size = new System.Drawing.Size(138, 35);
+            this.DataAndCurrTypeButton.Size = new System.Drawing.Size(156, 35);
             this.DataAndCurrTypeButton.TabIndex = 4;
             this.DataAndCurrTypeButton.Text = "  Сменить дату";
             this.DataAndCurrTypeButton.UseVisualStyleBackColor = true;
@@ -74,7 +79,7 @@
             // GraphButton
             // 
             this.GraphButton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.GraphButton.Location = new System.Drawing.Point(550, 57);
+            this.GraphButton.Location = new System.Drawing.Point(541, 112);
             this.GraphButton.Name = "GraphButton";
             this.GraphButton.Size = new System.Drawing.Size(118, 56);
             this.GraphButton.TabIndex = 6;
@@ -107,7 +112,7 @@
             // 
             // propertyGrid1
             // 
-            this.propertyGrid1.Location = new System.Drawing.Point(12, 217);
+            this.propertyGrid1.Location = new System.Drawing.Point(12, 220);
             this.propertyGrid1.Name = "propertyGrid1";
             this.propertyGrid1.Size = new System.Drawing.Size(326, 160);
             this.propertyGrid1.TabIndex = 13;
@@ -128,12 +133,66 @@
             this.groupBox1.Text = "groupBox1";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // cartesianChart1
+            // 
+            this.cartesianChart1.Location = new System.Drawing.Point(406, 196);
+            this.cartesianChart1.Name = "cartesianChart1";
+            this.cartesianChart1.Size = new System.Drawing.Size(375, 203);
+            this.cartesianChart1.TabIndex = 15;
+            this.cartesianChart1.Text = "cartesianChart1";
+            this.cartesianChart1.ChildChanged += new System.EventHandler<System.Windows.Forms.Integration.ChildChangedEventArgs>(this.cartesianChart1_ChildChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(401, 22);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(204, 26);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "Выберите валюту";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // GraphTextBox
+            // 
+            this.GraphTextBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.GraphTextBox.Location = new System.Drawing.Point(625, 19);
+            this.GraphTextBox.Name = "GraphTextBox";
+            this.GraphTextBox.Size = new System.Drawing.Size(100, 29);
+            this.GraphTextBox.TabIndex = 17;
+            this.GraphTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(435, 402);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(102, 23);
+            this.label3.TabIndex = 18;
+            this.label3.Text = "Минимум:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.Location = new System.Drawing.Point(609, 402);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(107, 23);
+            this.label4.TabIndex = 19;
+            this.label4.Text = "Максимум:";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.GraphTextBox);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.cartesianChart1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.ExitButton);
             this.Controls.Add(this.GraphButton);
@@ -158,6 +217,11 @@
         private System.Windows.Forms.PropertyGrid propertyGrid1;
         public System.Windows.Forms.ListBox CurrencyList;
         private System.Windows.Forms.GroupBox groupBox1;
+        private LiveCharts.WinForms.CartesianChart cartesianChart1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox GraphTextBox;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }
 
